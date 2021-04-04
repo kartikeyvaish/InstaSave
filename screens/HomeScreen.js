@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 
 import AppButton from "../components/AppButton";
@@ -8,6 +8,10 @@ import TextInput from "../components/TextInput";
 
 function HomeScreen({ navigation }) {
   const [Link, SetLink] = useState("");
+
+  useEffect(() => {
+    return () => {};
+  }, []);
 
   return (
     <Container style={styles.container}>
@@ -22,6 +26,11 @@ function HomeScreen({ navigation }) {
         placeholder="Paste Link Here.."
         style={styles.InputBox}
         onChangeText={(text) => SetLink(text)}
+        ShowClearButton={true}
+        onSubmitEditing={() =>
+          navigation.navigate("DownloadingScreen", { Link })
+        }
+        ClearTextInput={() => SetLink("")}
       />
 
       <AppButton
