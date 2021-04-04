@@ -160,7 +160,7 @@ function DownloadingScreen({ route }) {
               Verified={File.owner.is_verified}
             />
 
-            <Preview uri={File.display_url} />
+            <Preview uri={File.display_url} Count={2} />
 
             {Status !== "Stop" ? (
               <>
@@ -192,14 +192,22 @@ function DownloadingScreen({ route }) {
               style={{ paddingLeft: 10, paddingTop: 10 }}
             />
             {LoadingText === "Unable to get Post Details" ? (
-              <AppButton
-                Title="Retry"
-                marginTop={10}
-                marginBottom={10}
-                style={{ height: 50 }}
-                Active={true}
-                onPress={() => GetMediaData()}
-              />
+              <>
+                <AppText
+                  Title="Post may be private."
+                  size={15}
+                  family="Muli"
+                  style={{ paddingLeft: 10, paddingTop: 10 }}
+                />
+                <AppButton
+                  Title="Retry"
+                  marginTop={10}
+                  marginBottom={10}
+                  style={{ height: 50 }}
+                  Active={true}
+                  onPress={() => GetMediaData()}
+                />
+              </>
             ) : null}
           </>
         )}
