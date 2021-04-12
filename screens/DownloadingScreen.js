@@ -50,6 +50,22 @@ function DownloadingScreen({ route }) {
       if (response.ok) {
         SetFile(response.data.graphql.shortcode_media);
       } else {
+        GetMediaDataPOST();
+      }
+    } catch (error) {
+      GetMediaDataPOST();
+    }
+  };
+
+  const GetMediaDataPOST = async () => {
+    try {
+      SetLoadingText("Fetching Post...");
+      let s = route.params.Link.replace(AppConfiguration.BaseURL, "");
+      let endpoint = s.split("/")[0] + "/" + s.split("/")[1] + "/?__a=1";
+      const response = await API.GetMediaDataPOST(endpoint);
+      if (response.ok) {
+        SetFile(response.data.graphql.shortcode_media);
+      } else {
         SetLoadingText("Unable to get Post Details");
       }
     } catch (error) {
