@@ -6,6 +6,8 @@
 
 A React Native app to download Instagram Media for free
 
+Link for the Android App - https://expo.dev/artifacts/eas/cWYcjfwEv7GTriP5vEkAJo.apk
+
 ## Features
 
 - You can download images and videos from a post
