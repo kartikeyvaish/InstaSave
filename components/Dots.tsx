@@ -25,7 +25,7 @@ function Dots(props: DotsProps) {
         (index + 1) * ScreenWidth,
         (index + 2) * ScreenWidth,
       ],
-      [0.2, 0.5, 1.2, 0.5, 0.2],
+      [0.2, 0.5, 1, 0.5, 0.2],
       Extrapolate.CLAMP
     );
 
@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
     height: 8,
     backgroundColor: ColorPallete.primary,
     marginRight: 5,
-    borderRadius: ScreenWidth,
+    borderRadius: 100,
   },
 });
