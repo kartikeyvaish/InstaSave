@@ -1,7 +1,7 @@
 # InstaSave
 
 <p align="center">
-  <img width="200" src="./assets/icon.png" />
+  <img width="200" src="https://i.imgur.com/pgLZffR.png" />
 </p>
 
 A React Native app to download Instagram Media for free
