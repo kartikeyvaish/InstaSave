@@ -55,7 +55,7 @@ function PostCard(props: PostCardProps) {
   const nameToDisplay = get_username(owner?.username, coauthor_producers);
 
   // Local States
-  const [Muted, SetMuted] = useState(true);
+  const [Muted, SetMuted] = useState(false);
   const [SelectedPosts, SetSelectedPosts] = useState<Array<PostProps>>(posts);
   const [DownLoading, SetDownLoading] = useState(false);
   const [DownloadingText, SetDownloadingText] = useState("Download Files");
