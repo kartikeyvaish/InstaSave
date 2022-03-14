@@ -33,12 +33,13 @@ function HomeScreen({ navigation }: AppScreenProps<"HomeScreen">) {
 
       SetLoading(true);
       const response = await GetPostDetailsAPI(URI);
+      SetLoading(false);
+
       if (response) {
         navigation.navigate("NewDownloadScreen", { PostDetails: response });
       } else {
         ToastAndroid.show("Invalid URL or Post may be private.", ToastAndroid.LONG);
       }
-      SetLoading(false);
     } catch (error) {
       SetLoading(false);
     }
