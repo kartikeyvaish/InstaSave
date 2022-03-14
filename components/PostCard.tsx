@@ -7,6 +7,7 @@ import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
   Layout as LT,
+  withTiming,
 } from "react-native-reanimated";
 import { Checkbox } from "react-native-paper";
 import * as FileSystem from "expo-file-system";
@@ -116,6 +117,8 @@ function PostCard(props: PostCardProps) {
 
   // download selected posts
   const DownloadPost = async () => {
+    downloadProgress.value = 0;
+
     try {
       if (!status?.granted) {
         await requestPermission();
@@ -139,9 +142,10 @@ function PostCard(props: PostCardProps) {
 
       // Download all files
       for (let i = 0; i < files.length; i++) {
-        const file_download = await DownloadFile(files[i]);
         SetDownloadingText(`Downloading ${i + 1} of ${files.length}`);
+        const file_download = await DownloadFile(files[i]);
         if (file_download) await SaveFile(file_download?.local_uri);
+        downloadProgress.value = withTiming(((i + 1) / files.length) * 100);
       }
 
       SetDownloadingText(`Download Files`);
