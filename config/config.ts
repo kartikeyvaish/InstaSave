@@ -1,13 +1,11 @@
 // packages imports
-import Constants from 'expo-constants';
+import env_variables from "react-native-config";
 
-// types imports
-import { EnvironmentVariablesProps } from './../types/EnvironmentVariables';
+// types imports 
+import { EnvironmentVariablesProps } from "../types/EnvironmentVariables";
 
-// env
-const env: EnvironmentVariablesProps = {
-    ...(Constants.manifest?.extra ?? {}),
-}
+// Construct the Environment Variables
+const env: EnvironmentVariablesProps = { ...env_variables }
 
-// exporting the env
+// Exports
 export default env;
